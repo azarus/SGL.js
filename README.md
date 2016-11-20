@@ -163,7 +163,7 @@ Sprite Sheets:
 var animatedSprite = new AnimatedSprite(100, 100);
 
 // Create a sprite sheet from texture with playspeed ()
-var animation = new SpriteSheet(0.02, new Texture("assets/sara-cal.png"));
+var animation = new SpriteSheet(0.02, new Texture("assets/spritesheet.png"));
 
 // Add frames (Automatically maps pixels to UV coordinates)
 // If you need uvs you can use the addFrameUVs(x, y, u, v) function
