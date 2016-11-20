@@ -159,7 +159,42 @@ game.start();
 
 Sprite Sheets:
 ```javascript
-var spriteSheet = new SpriteSheet("assets/spritesheet.png");
+// Create a new animated sprite
+var animatedSprite = new AnimatedSprite(100, 100);
+
+// Create a sprite sheet from texture with playspeed ()
+var animation = new SpriteSheet(0.02, new Texture("assets/sara-cal.png"));
+
+// Add frames (Automatically maps pixels to UV coordinates)
+// If you need uvs you can use the addFrameUVs(x, y, u, v) function
+animation.addFrame( 0, 0, 27, 50 );
+animation.addFrame( 27, 0, 54, 50 );
+animation.addFrame( 54, 0, 81, 50 );
+animation.addFrame( 81, 0, 108, 50 );
+animation.addFrame( 108, 0, 135, 50 );
+animation.addFrame( 135, 0, 162, 50 );
+animation.addFrame( 162, 0, 189, 50 );
+animation.addFrame( 189, 0, 216, 50 );
+animation.addFrame( 216, 0, 243, 50 );
+
+// Set the speed for the animation
+animation.setSpeed(10); // Update the image 10 times a second
+
+// Set the animation to be the current one
+animatedSprite.setAnimation(animation);
+
+// Set the sprite to be animated
+animatedSprite.play();
+
+// Update the animation (with delta time in seconds)
+spriteAnim.update(delta);
+
+// Draw the animation
+renderTarget.draw(animatedSprite);
+
+// Stop the animation
+animatedSprite.stop();
+
 // Todo...
 ```
 
