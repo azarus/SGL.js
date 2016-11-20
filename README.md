@@ -129,6 +129,34 @@ tilemap.updateTile(32, 55, 10); // updates tile positioned at 32x55 to the subIm
 renderTarget.draw(tilemap);
 ```
 
+Game Loop:
+```javascript
+var canvas = document.getElementById("game-canvas")
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+var renderCanvas;
+var sprite;
+var game = new GameLoop();
+game.on("init", function()
+{
+	renderCanvas = new RenderCanvas(canvas);
+	sprite = new Sprite("assets/nehe.gif");
+});
+var x=0;
+game.on("update", function(delta)
+{
+	++x;
+	sprite.setPosition(Math.sin(x/100)*100, 0);
+});
+game.on("render", function(delta)
+{
+	renderCanvas.clear(Color.FromHex("#30b4cc"), 1);
+	renderCanvas.draw(sprite);
+});
+game.start();
+```
+
 Sprite Sheets:
 ```javascript
 var spriteSheet = new SpriteSheet("assets/spritesheet.png");
