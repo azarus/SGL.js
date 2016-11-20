@@ -4,7 +4,8 @@ SGL.js is a  WebGL powered 2D graphics library for the javascript language. Its 
   - Render to a Canvas
   - Render to a Texture
   - Render Sprites
-  - Render large Tilemaps
+  - Render Sprite sheets
+  - Render large Tilemaps (512x512 or larger)
   - Custom View and Camera Movement
 
 It also features some other tools like:
