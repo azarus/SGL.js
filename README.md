@@ -141,7 +141,7 @@ var game = new GameLoop();
 game.on("init", function()
 {
 	renderCanvas = new RenderCanvas(canvas);
-	sprite = new Sprite("assets/nehe.gif");
+	sprite = new Sprite("assets/sgl.png");
 });
 var x=0;
 game.on("update", function(delta)
