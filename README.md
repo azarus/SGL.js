@@ -1,7 +1,5 @@
 # Simple Graphics Library for Javascript (SGL.js)
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
 SGL.js is a HTML5 based, mobile-friendly WebGL powered 2D graphics library for the javascript language. It features a simple and easy to use API for:
   - Rendering to a Canvas
   - Rendering to a Texture
