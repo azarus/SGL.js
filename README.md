@@ -15,6 +15,7 @@ It also features some other tools like:
 
 
 **Live Examples:**
+
 **[Canvas](https://azarus.github.io/sgl.js/examples/canvas.html)**
 
 **[Sprite](https://azarus.github.io/sgl.js/examples/sprite.html)**
