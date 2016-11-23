@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SGL.js</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+   <body oncontextmenu="return false">
+  
+	
+   <div align="center">
+    <canvas id="example-canvas"></canvas>
+  </div>
+  <script src="sgl.js"></script>
+  <script>
+
+	var canvas = document.getElementById("example-canvas")
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
+	var renderCanvas;
+	var sprite;
+	var game = new GameLoop();
+	game.on("init", function()
+	{
+		renderCanvas = new RenderCanvas(canvas);
+		sprite = new Sprite("assets/opengl_logo.png");
+	});
+	var x=0;
+	game.on("update", function(delta)
+	{
+		++x;
+		sprite.setPosition(Math.sin(x/100)*100, 0);
+	});
+	game.on("render", function(delta)
+	{
+		renderCanvas.clear(Color.FromHex("#30b4cc"), 1);
+		renderCanvas.draw(sprite);
+	});
+	game.start();
+
+  </script>
+  </body>
+</html>

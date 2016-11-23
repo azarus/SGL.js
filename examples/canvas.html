@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SGL.js</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+   <body oncontextmenu="return false">
+  
+	
+   <div align="center">
+    <canvas id="example-canvas" style="width:500px;height:200px;"></canvas>
+  </div>
+  <script src="sgl.js"></script>
+  <script>
+  // Create a simple canvas
+	var canvas = document.getElementById("example-canvas")
+	var renderCanvas = new RenderCanvas(canvas);
+	renderCanvas.clear(Color.FromHex("#30b4cc"), 1);
+  </script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "presets": ["latest"],
+  "plugins": [
+    ["babel-root-slash-import", {
+      "rootPathSuffix": "src/"
+    }],
+	["transform-decorators-legacy"],
+	["transform-class-properties"],
+	
+  ]
+}
