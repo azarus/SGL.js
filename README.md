@@ -15,9 +15,11 @@ It also features some other tools like:
 
 
 **Live Examples:**
-[Canvas](https://azarus.github.io/sgl.js/examples/canvas.html)
-[Sprite](https://azarus.github.io/sgl.js/examples/sprite.html)
-[Game Loop with moving sprite](https://azarus.github.io/sgl.js/examples/gameloop.html)
+**[Canvas](https://azarus.github.io/sgl.js/examples/canvas.html)**
+
+**[Sprite](https://azarus.github.io/sgl.js/examples/sprite.html)**
+
+**[Game Loop with moving sprite](https://azarus.github.io/sgl.js/examples/gameloop.html)**
 
 
 SGL is **Simple** and **Easy to use** if you need access to the low level rendering API. Everything was designed to be straightforward.
