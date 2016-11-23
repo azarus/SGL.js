@@ -14,6 +14,12 @@ It also features some other tools like:
   - Switch between multiple Canvas and WebGL contexts
 
 
+**Live Examples:**
+[Canvas](https://azarus.github.io/sgl.js/examples/canvas.html)
+[Sprite](https://azarus.github.io/sgl.js/examples/sprite.html)
+[Game Loop with moving sprite](https://azarus.github.io/sgl.js/examples/gameloop.html)
+
+
 SGL is **Simple** and **Easy to use** if you need access to the low level rendering API. Everything was designed to be straightforward.
 It is super easy to get up and running and have something rendered on the screen.
 
