@@ -9,9 +9,10 @@ SGL.js is a  WebGL powered 2D graphics library for the javascript language. Its 
   - Custom View and Camera Movement
 
 It also features some other tools like:
+  - Built in super fast 2D lighting engine (soft shadows are coming soon) 
   - Loading Assets for Web Based Games
   - Handling User Input
-  - Switch between multiple Canvas and WebGL contexts
+  - Switch between multiple Canvases and WebGL contexts
 
 
 **Live Examples:**
@@ -22,6 +23,7 @@ It also features some other tools like:
 
 **[Game Loop with moving sprite](https://azarus.github.io/sgl.js/examples/gameloop.html)**
 
+**[Lighting Engine](https://azarus.github.io/sgl.js/examples/light.html)**
 
 SGL is **Simple** and **Easy to use** if you need access to the low level rendering API. Everything was designed to be straightforward.
 It is super easy to get up and running and have something rendered on the screen.
@@ -205,7 +207,41 @@ renderTarget.draw(animatedSprite);
 // Stop the animation
 animatedSprite.stop();
 
-// Todo...
+```
+
+LightMap:
+```javascript
+// Initialization:
+
+// Create a rendering context from a canvas
+var canvas = document.getElementById("html5-canvas");
+var renderCanvas = new RenderCanvas(canvas);
+
+// Custom Camera (Align it to the canvas size)
+var camera = new View(0, 0, canvas.width, canvas.height);
+renderCanvas.setView(camera); // set the viewer to be the camera
+
+// Create a new lightmap (512x512 size)
+var lightMap = new LightMap(512, 512);
+
+// Add a quad shadow hull that will block the light
+lightmap.addShadowHull(ShadowHull.makeQuad(-16, -16, 32, 32)); // Centered in the middle
+lightmap.rebuild(); // Rebuild the shadow hulls
+
+// Create a Light with a custom sprite texture and assign color, radius and intensity
+var light = new Light("assets/light.png", Color.Red, 128, 0.005);
+lightmap.addLight(light); // And add it to the lightmap
+
+// Set  the lights position
+light.setPosition(0, 32);
+
+// Draw the light map
+renderCanvas.draw(light);
+
+// ...
+
+You can have many more lights, and many more shadow hulls, the system is gpu accelerated so everything is super fast. The amount of lights might affect performance becuase of the overdraw is costly.
+
 ```
 
 ### Todos
