@@ -240,9 +240,10 @@ renderCanvas.draw(light);
 
 // ...
 
-You can have many more lights, and many more shadow hulls, the system is gpu accelerated so everything is super fast. The amount of lights might affect performance becuase of the overdraw is costly.
-
 ```
+
+**Remarks:**
+ - You can have many more lights, and many more shadow hulls, the system is gpu accelerated so everything is super fast. The amount of lights might affect performance becuase of the overdraw is costly.
 
 ### Todos
 
