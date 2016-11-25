@@ -236,7 +236,7 @@ lightmap.addLight(light); // And add it to the lightmap
 light.setPosition(0, 32);
 
 // Draw the light map
-renderCanvas.draw(light);
+renderCanvas.draw(lightmap);
 
 // ...
 
@@ -244,6 +244,8 @@ renderCanvas.draw(light);
 
 **Remarks:**
  - You can have many more lights, and many more shadow hulls, the system is gpu accelerated so everything is super fast. The amount of lights might affect performance becuase of the overdraw is costly.
+Please have a look at the demo page for complete usage:
+**[Lighting Engine](https://azarus.github.io/sgl.js/examples/light.html)**
 
 ### Todos
 
