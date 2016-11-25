@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SGL.js</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+
+   <body oncontextmenu="return false">
+  
+	
+   <div align="center">
+    <canvas id="example-canvas"></canvas>
+  </div>
+  <script src="/sgl.js"></script>
+  <script>
+  // Create a simple canvas
+	var canvas = document.getElementById("example-canvas");
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	var renderCanvas = new RenderCanvas(canvas);
+
+	camera = new View(0, 0, canvas.clientWidth, canvas.clientHeight);
+	camera.setViewport(0, 0, canvas.width, canvas.height);
+	renderCanvas.setView(camera);
+
+	Input.on("wheel", function(direction)
+	{
+		if(direction)
+		{
+			camera.zoom(0.1);
+		}else{
+			camera.zoom(-0.1);
+		}
+
+	});
+
+	var lightMap = new Lightmap(512, 512);
+	var light = new Light("assets/light.png", Color.White, 128, 0.005);
+	light.setPosition(0, 32);
+	lightMap.addLight(light);
+
+	for(var i=0;i<30;++i) {
+		var x = Math.getRandomInt(-512, 512);
+		var y = Math.getRandomInt(-512, 512);
+		lightMap.addShadowHull(ShadowHull.makeQuad(x, y, 32, 32));
+	}
+	
+	for(var i=0;i<30;++i) {
+		var x = Math.getRandomInt(-512, 512);
+		var y = Math.getRandomInt(-512, 512);
+		lightMap.addShadowHull(ShadowHull.makeCircle(x, y, 32, 12));
+	}
+
+	lightMap.rebuild();
+
+	for(var i=0;i<25;++i)
+	{
+		var staticlight = new Light("assets/light.png", Color.random(0, 255), Math.getRandomInt(128, 512), 0.005);
+		staticlight.setPosition(Math.getRandomInt(-512, 512), Math.getRandomInt(-512, 512));
+		lightMap.addLight(staticlight);
+	}
+
+	var game = new GameLoop(60, 1);
+	console.log("Engine Init");
+	game.on("update", function(delta)
+	{
+		if(Input.IsKeyDown("w"))
+		{
+			light.move(0, -1);
+		}
+
+		if(Input.IsKeyDown("s"))
+		{
+			light.move(0, 1);
+		}
+
+		if(Input.IsKeyDown("a"))
+		{
+			light.move(-1, 0);
+		}
+
+		if(Input.IsKeyDown("d"))
+		{
+			light.move(1, 0);
+		}
+	});
+
+	game.on("render", function()
+	{
+		renderCanvas.clear(Color.Black);
+		renderCanvas.draw(lightMap);
+	});
+
+	game.start();
+
+  </script>
+  </body>
+</html>

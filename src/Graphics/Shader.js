@@ -69,7 +69,6 @@ export default class Shader
 		this.bind();
 		var Attribute = gl.getAttribLocation(this.program, param);
 		gl.enableVertexAttribArray(Attribute);
-
 		buffer.bind();
 		gl.vertexAttribPointer(Attribute, buffer.itemSize, gl.FLOAT, false, 0, 0);
 	}

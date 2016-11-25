@@ -4,7 +4,7 @@ export default class Light extends Drawable
 	shadowBuffer = null;
 	x = 0;
 	y = 0;
-	constructor(color = Color.White, radius = 128, intensity = 1, lightTexture)
+	constructor(lightTexture, color = Color.White, radius = 128, intensity = 1)
 	{
 		super(radius, radius);
 		this.color = color;
@@ -29,9 +29,6 @@ export default class Light extends Drawable
 		"uniform float uLightIntensity;"+
 		"uniform sampler2D uTexture;"+
 		"void main(void) {gl_FragColor = uLightColor * (uLightIntensity * texture2D(uTexture, vVertexCoords).r);}", Shader.Pixel);
-	
-
-
 
 		this.shader.create("attribute vec2 aVertexPosition;"+
 		"attribute vec2 aVertexCoords;"+

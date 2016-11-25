@@ -64,6 +64,13 @@ export default class RenderTarget
 		this.applyViewport();
 		gl.drawArrays(buffer.type, 0, buffer.numItems);
 	}
+	
+	drawElements(buffer)
+	{
+		this.bind();
+		this.applyViewport();
+		gl.drawElements(buffer.type, buffer.numItems, gl.UNSIGNED_SHORT, buffer.buffer);
+	}
 
 	bind()
 	{

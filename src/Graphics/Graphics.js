@@ -13,6 +13,8 @@ import "./Texture";
 import "./TextureAtlas";
 import "./Transform";
 import "./View";
+import "./BufferObject";
+import "./IndexBuffer";
 import "./VertexBuffer";
 import "./Shader";
 import "./RenderTarget";

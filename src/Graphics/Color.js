@@ -9,7 +9,7 @@ export default class Color
 		this.a = a;
 	}
 
-	static FromHex(hex, opacity)
+	static fromHex(hex, opacity)
 	{
 		opacity = opacity || 1;
     	hex = hex.replace('#','');
@@ -19,6 +19,15 @@ export default class Color
     	var a = opacity * 255;
     	console.log(r, g, b, a);
 	    return new Color(r, g, b, a);
+	}
+	
+	static random(min, max, opacity=0)
+	{
+		var r = Math.getRandomInt(min, max);
+		var g = Math.getRandomInt(min, max);
+		var b = Math.getRandomInt(min, max);
+		var a = Math.getRandomInt(min, max);
+		return new Color(r, g, b, a + opacity);
 	}
 
 	getParam3D()
